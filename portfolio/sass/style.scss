@@ -252,9 +252,10 @@ body{
 
 //about
 .about{
-
     &_container{
-
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 40px;
     }
 
     &_img{
