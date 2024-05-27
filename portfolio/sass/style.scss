@@ -1,0 +1,592 @@
+@use "color";
+@use "breakpoints";
+
+
+body{
+    font-family: "Kiwi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: color.$cl-black;
+
+    &.is-fixed{
+        overflow: hidden;
+    }
+}
+
+
+.button{
+    display: flex;
+    align-items: center;
+    padding: 6px 10px 6px 30px;
+    width: 160px;
+    margin: 0 auto;
+
+    &--bg{
+        background-color: color.$white;
+
+        .button_text{
+        color: color.$bg-dark;
+      }
+    }
+    &--border{
+        border:1px solid color.$white;
+
+        .button_text{
+            color: color.$white;
+         }
+    }
+
+    &_icon{
+      width: 24px;
+      display: flex;
+      align-items: center;
+
+    }
+    &_icon-path{
+     fill: color.$pink;
+     
+      &--contact{
+        fill:color.$bg-dark;
+      }
+    }
+    &_text{
+        margin-left: 10px;
+        font-size: 16px;
+        letter-spacing: 0.08em;
+        color: color.$white;
+
+    }
+}
+
+
+//header
+.header{
+    background-color: color.$bg-dark;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+&_container{
+    width: 100%;
+    position: relative;
+}
+
+
+&_logo{
+    display: inline-block;
+    padding: 14px 24px;
+    font-size: 20px;
+    color:color.$white;
+}
+
+
+&_menu-button{
+    border: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 30px;
+    height: 36px;
+    overflow: hidden;
+    color:transparent;
+    background:url(../img/bg_menu.png) center center no-repeat;
+    background-size: 100% auto;
+
+    &.is-checked{
+     background: url(../img/bg_menu-close.png) center center no-repeat;
+     background-size: 100% auto;
+    }
+}
+&_contents{
+    display: none;
+    height: calc(100vh - 88px);
+    border-top: 1px solid color.$white;
+    padding-top: 60px;
+}
+
+&_nav-item{
+    & + & {
+        margin-top: 24px;
+    }
+}}
+
+//fv背景画像の上にファーストビューコンテンツを載せるCSS
+.fv{
+    position: relative;
+
+    &_contents{
+        position: absolute;
+        bottom: 26px;
+        left: 0;
+        width: 100%;
+        height: 209px;
+        background: url(../img/sp/bg_fv.png) center center no-repeat;
+        background-size: 100% auto;
+        padding: 32px;
+
+    }
+
+    &_heading{
+
+    }
+
+    &_heading-main{
+       display: block;
+       font-size: 40px;
+       letter-spacing: 0.1em;
+    }
+
+    &_heading-sub{
+        margin-top: 12px;
+        display: block;//縦並びにするためのディスプレイブロック
+        font-size: 14px;
+
+    }
+}
+
+//section
+
+.section{
+    padding: 48px 0;
+&_inner{
+    padding: 0 32px;
+}
+
+&_head{
+    display: flex;
+    flex-direction: column; //152と153でサービスと提供サービスを縦並びにしている
+    margin-bottom: 32px;
+
+    &_--center{
+        text-align: center;
+    }
+}
+
+&__head-main{
+    font-size: 40px;
+    letter-spacing: 0.1em;
+}
+
+&_head-sub{
+     font-size: 11px;
+}
+
+&_lead-text{
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+&_contents{
+    margin-top: 40px;
+}
+
+}
+
+//service
+
+.service{
+&_list{
+
+}
+
+&_item{
+   & + & {
+    margin-top: 40px;
+   }
+}
+
+
+&_item-img{
+//左に寄っている画像をセンターに
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+&_item-name{
+   font-size: 14px;
+   font-weight: bold;
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+&_item-text{
+   font-size: 14px;
+   line-height: 1.6;
+}  
+}
+
+//works
+.works{
+    background-color: color.$bg-light;
+&_list{
+
+}
+
+&_item{
+   & + & {
+    margin-top: 40px;
+   }
+}
+
+&_item-img{
+    margin-bottom: 12px;
+    img{
+        box-shadow: 0 4px 15px 0 rgba(color.$black, 0.15);
+    }
+}
+
+&_item-name{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+&_item-link{
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+}
+
+//about
+.about{
+
+    &_container{
+
+    }
+
+    &_img{
+        margin-bottom: 32px;
+
+        img{
+        box-shadow: 0 4px 15px 0 rgba(color.$black, 0.15);
+    }
+    }
+
+    &_text-contents{
+
+    }
+
+    &_text{
+        font-size: 16px;
+        line-height: 1.6;
+
+        & + & {
+            margin-top: 1em;
+        }
+    }
+}
+
+//flow
+.flow{
+    background-color: color.$bg-light;
+
+    &_list{
+      margin-top: 64px;
+      
+    }
+//
+/*.flow{
+    &_list{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px 16px;
+    }
+}*/
+    &_item{
+       position: relative;
+       border: 1px solid color.$cl-border;
+       padding: 46px 16px 24px;
+      
+       & + & {
+        margin-top: 46px;
+       }
+       
+
+    }
+
+    //外枠をつけるためのコード
+    &_item-num{
+       position: absolute;
+       top: -24px;
+       left: 50%;
+       transform: translateX(-50%);
+       font-size: 24px;
+       background-color: color.$bg-dark;
+       color: color.$white;
+       width: 48px;
+       height: 48px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+
+    &_item-img{
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+
+    &_item-name{
+       font-size: 16px;
+       font-weight: bold;
+       text-align: center;
+       margin-bottom: 10px;
+
+    }
+
+    &_item-text{
+    font-size: 14px;
+    line-height: 1.6;
+    }
+}
+
+//message
+
+.message{
+    &_container{
+
+    }
+
+    &_img{
+        margin-top: 32px;
+        margin-bottom: 32px;
+
+        img{
+            box-shadow: 0 4px 15px 0 rgba(color.$black, 0.15);
+        }
+
+    }
+
+    &_text-contents{
+
+    }
+
+    &_text{
+        font-size: 16px;
+        line-height: 1.6;
+
+    }
+}
+
+//page-bottom
+.page-bottom{
+
+    color: color.$white;
+&_item{
+    padding: 40px;
+
+   &--contact{
+    background-color: color.$bg-gray-l;
+   }
+   &_x{
+    background-color: color.$bg-dark;
+   }
+}
+
+
+}
+
+.footer{
+    text-align: center;
+    padding: 20px;
+&-copy{
+    font-size: 11px;
+    
+    font-family: "Kiwi Maru", serif;  
+}
+
+}
+
+
+
+/**************************
+//PC
+**************************/
+@include breakpoints.mq(pc){
+    .wrapper{
+        display: flex;
+       
+    }
+
+    .main{
+        flex-basis: 79.2%;
+    }
+    .header{
+        position: relative;
+        flex-basis: 20.8%;
+        padding: 50px 20px;
+              
+        &_container{
+            width: 160px;
+            margin: 0 auto;
+            position: sticky;
+            top: 50px;
+}
+
+        &_logo{
+            font-size: 30px;
+            letter-spacing: 0.12em;
+            line-height: 1;
+
+}
+
+        &_menu-button{
+            display: none;
+        }
+
+        &_contents{
+            border: none;
+            display: block;
+          
+        }
+    }
+
+    .button{
+        transition: background 0.3s, color 0.3s, opacity 0.3s;
+
+        &:hover{
+            background-color: color.$white;
+
+            .button_icon-path{
+                fill: color.$bg-dark;
+            }
+
+            .button_text{
+                color: color.$bg-dark;
+            }
+        }
+
+        &--bg{
+            color: color.$bg-dark;
+
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+
+    
+    .section{
+        &_inner{
+            min-width: calc(880px + 32px * 2);
+            margin: 0 auto;
+
+        }
+&_head{
+    margin-bottom: 24px;
+}
+
+&_head-main{
+    font-size: 60px;
+}
+
+    }
+
+    .fv{
+        &_contents{
+         background: url(../img/bg_fv.png) center center no-repeat;
+         background-size: 100% auto;
+         bottom: 100px;
+         left: 0;
+         max-width: 627px;
+         height: 174px;
+         padding-top: 24px;
+         padding-left: 96px;
+        }
+    }
+
+    .service{
+        &_list{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8%;
+        }
+
+        &_item{
+            & + & {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .works{
+        &_list{   
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8%;
+        }
+        &_item{
+            & + & {
+                    margin-top: 0;
+             }
+    }
+}
+}
+
+//aboutを横並び
+.about{
+  &_container{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+  }
+}
+  .flow{
+     &_list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+}
+
+     &_item{
+        & + & {
+        margin-top: 0;
+    }
+}
+
+.message{
+  &_container{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    }
+  }
+
+.page-bottom{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &_item{
+        padding: 54px 10px;
+    }
+}
+}
+
+/***************************
+//tab
+***************************/
+
+@include breakpoints.mq(tb){
+    .section{
+        &_head-main{
+            font-size: 54px;
+        }
+    }
+
+.fv{
+    &_contents{
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+   }
+
+.flow{
+        &_list{
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 16px;
+        }
+    }
+}
